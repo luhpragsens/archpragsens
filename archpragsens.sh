@@ -45,7 +45,7 @@ echo $hostname > /etc/hostname
 echo "127.0.0.1		localhost" >> /etc/hosts
 echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1		$hostname.localdomain $hostname" >> /etc/hosts
-mkinitcpio -p
+mkinitcpio -P
 passwd
 pacman --noconfirm -S grub efibootmgr os-prober
 echo "Enter EFI partition: "
@@ -56,7 +56,6 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sed -i 's/quiet/pci=noaer/g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
-#Installing core tools
 
 pacman -S --noconfirm xorg-server xorg-xrandr xorg-xinit libxinerama bash rustup nushell networkmanager unzip pipewire pipewire-pulse man-db intel-ucode amd-ucode ntfs-3g git nvim p7zip unrar alacritty
 
