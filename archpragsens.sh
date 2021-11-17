@@ -57,7 +57,7 @@ sed -i 's/quiet/pci=noaer/g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S --noconfirm xorg-server xorg-xrandr xorg-xinit libxinerama bash rustup nushell networkmanager unzip pipewire pipewire-pulse man-db intel-ucode amd-ucode ntfs-3g git nvim p7zip unrar alacritty
+pacman -Sy --noconfirm xorg-server xorg-xrandr xorg-xinit libxinerama bash rustup nushell networkmanager unzip pipewire pipewire-pulse man-db intel-ucode amd-ucode ntfs-3g git nvim p7zip unrar alacritty
 
 systemctl enable NetworkManager.service
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
